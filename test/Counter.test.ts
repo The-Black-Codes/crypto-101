@@ -25,4 +25,11 @@ describe("Counter contract", () => {
     const count = await counter.getCount();
     expect(count).to.eql(1);
   });
+
+  it("when decrement is called decrements the counter", async () => {
+    const counter = await deployCounter();
+    await counter.increment();
+    const count = await counter.getCount();
+    expect(count).to.eql(-1);
+  });
 });
