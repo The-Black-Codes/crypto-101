@@ -19,4 +19,10 @@ describe("Counter contract", () => {
     const count = await counter.getCount();
     expect(count).to.eql(0);
   });
+  it("when increment is called increments the counter", async () => {
+    const counter = await deployCounter();
+    await counter.increment();
+    const count = await counter.getCount();
+    expect(count).to.eql(1);
+  });
 });
